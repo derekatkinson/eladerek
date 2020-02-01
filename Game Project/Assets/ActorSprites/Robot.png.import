@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TilesetPlatform.png-6cd202d135d794f52728419937ed913a.stex"
+path="res://.import/Robot.png-afe531e0de532be7b5e7a662bc6f4048.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TilesetPlatform.png"
-dest_files=[ "res://.import/TilesetPlatform.png-6cd202d135d794f52728419937ed913a.stex" ]
+source_file="res://Assets/ActorSprites/Robot.png"
+dest_files=[ "res://.import/Robot.png-afe531e0de532be7b5e7a662bc6f4048.stex" ]
 
 [params]
 
