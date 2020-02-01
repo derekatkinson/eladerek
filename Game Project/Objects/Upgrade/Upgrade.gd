@@ -1,7 +1,9 @@
 extends Area2D
 
-onready var anim_player := get_node("AnimationPlayer")
+
+onready var anim_player: AnimationPlayer = $AnimationPlayer
+
 
 func _on_body_entered(body: PhysicsBody2D) -> void:
 	anim_player.play("picked")
-	AutoRun.toggle_upgrade()
+	AutoRun.get_parts()

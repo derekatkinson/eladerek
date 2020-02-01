@@ -21,7 +21,10 @@ func _physics_process(delta: float) -> void:
 	VELOCITY = move_and_slide(VELOCITY, Vector2(0, -1)) 
 
 	if Input.is_action_just_pressed("ui_dash"):
-		dash()
+		if AutoRun.dash_upgrade:
+			dash()
+	
+	MAX_JUMPS = AutoRun.max_jump_count
 	
 	# Animation
 	"""
@@ -46,7 +49,7 @@ func get_direction() -> Vector2:
 func player_jump():
 	if is_on_floor():
 		CURRENT_JUMP = 0
-	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.upgrade:
+	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
 		CURRENT_JUMP += 1
 		return -1.0
 	else:
