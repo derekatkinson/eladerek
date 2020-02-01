@@ -1,5 +1,6 @@
 extends Node
 
+signal score_updated
 
 var upgrade := false
 var jump_count := 1

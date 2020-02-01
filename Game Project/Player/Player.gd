@@ -46,7 +46,7 @@ func get_direction() -> Vector2:
 func player_jump():
 	if is_on_floor():
 		CURRENT_JUMP = 0
-	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP:
+	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.upgrade:
 		CURRENT_JUMP += 1
 		return -1.0
 	else:
