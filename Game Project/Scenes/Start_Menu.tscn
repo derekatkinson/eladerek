@@ -20,7 +20,6 @@ rect_scale = Vector2( 0.99762, 0.991295 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
-flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
