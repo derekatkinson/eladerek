@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Backgrounds/MainLevelBackground-far.png" type="Texture" id=1]
+
+[node name="BG far" type="ParallaxBackground"]
+editor/display_folded = true
+layer = -3
+
+[node name="BG Far" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 1536, 864 )
+
+[node name="Sprite" type="Sprite" parent="BG Far"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -432 )
