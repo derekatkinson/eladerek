@@ -27,19 +27,19 @@ func _physics_process(delta: float) -> void:
 	MAX_JUMPS = AutoRun.max_jump_count
 	
 	# Animation
-	"""
-	var anim_idle = "Idle"
-	var anim_walk = "Walk"
 	
-	if velocity.x == 0:
+	var anim_idle = "Idle"
+	var anim_move = "Move"
+	
+	if VELOCITY.x == 0:
 		player_anim.play(anim_idle)
 	else:
-		player_anim.play(anim_walk)
-	if velocity.x > 0:
+		player_anim.play(anim_move)
+	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)
-	elif velocity.x < 0:
+	elif VELOCITY.x < 0:
 		player_sprite.set_flip_h(true)
-	"""
+	
 	
 func get_direction() -> Vector2:
 	return Vector2(
