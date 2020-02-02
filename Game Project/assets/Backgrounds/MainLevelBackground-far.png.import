@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MainLevelBackground-far.png-ce87ec731b94392da7b82fbcce671499.stex"
+path="res://.import/MainLevelBackground-far.png-657b6bb7a97d3bdf77359520a1aaede7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Backgrounds/MainLevelBackground-far.png"
-dest_files=[ "res://.import/MainLevelBackground-far.png-ce87ec731b94392da7b82fbcce671499.stex" ]
+source_file="res://Assets/Backgrounds/MainLevelBackground-far.png"
+dest_files=[ "res://.import/MainLevelBackground-far.png-657b6bb7a97d3bdf77359520a1aaede7.stex" ]
 
 [params]
 

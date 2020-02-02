@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Portal/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Backgrounds/BG mid.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Backgrounds/BG close.tscn" type="PackedScene" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -20,6 +23,7 @@ __meta__ = {
 }
 
 [node name="background" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -475.644
@@ -104,5 +108,11 @@ margin_bottom = 265.172
 text = "Explore: Bring the spare parts to the portal"
 align = 1
 valign = 1
+
+[node name="BG close" parent="." instance=ExtResource( 10 )]
+
+[node name="BG far" parent="." instance=ExtResource( 9 )]
+
+[node name="BG mid" parent="." instance=ExtResource( 8 )]
 [connection signal="button_up" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_button_up"]
 [connection signal="button_up" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_Exit_button_up"]
