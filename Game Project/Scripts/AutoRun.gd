@@ -1,10 +1,10 @@
 extends Node
 
-var first_run := true
+var first_run := false
 var has_parts := false
-var jump_upgrade := false
-var dash_upgrade := false
-var max_jump_count := 1
+var jump_upgrade := true
+var dash_upgrade := true
+var max_jump_count := 2
 
 func get_parts() -> void:
 	has_parts = true
