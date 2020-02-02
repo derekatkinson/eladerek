@@ -7,26 +7,9 @@
 radius = 7.18167
 height = 15.6882
 
-[sub_resource type="Animation" id=8]
-resource_name = "Fall"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 41, 42, 43 ]
-}
-
 [sub_resource type="Animation" id=7]
 resource_name = "Fall_DT"
 length = 0.9
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -40,7 +23,8 @@ tracks/0/keys = {
 "values": [ 38, 39, 40 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -90,7 +74,8 @@ tracks/0/keys = {
 "values": [ 31, 32, 33, 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
+resource_name = "Move"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -106,7 +91,8 @@ tracks/0/keys = {
 "values": [ 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
+resource_name = "Move_DT-off"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -141,8 +127,8 @@ anims/Fall_DT = SubResource( 7 )
 anims/Idle = SubResource( 2 )
 anims/Idle_DT-off = SubResource( 4 )
 anims/Jump_single = SubResource( 5 )
-anims/Move = SubResource( 6 )
-anims/Move_DT-off = SubResource( 7 )
+anims/Move = SubResource( 3 )
+anims/Move_DT-off = SubResource( 6 )
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.2
