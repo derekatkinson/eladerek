@@ -50,19 +50,19 @@ __meta__ = {
 }
 
 [node name="HUD_DoubleJump" type="TextureRect" parent="Player"]
-margin_left = -265.63
-margin_top = -163.039
-margin_right = -225.63
-margin_bottom = -123.039
+margin_left = -296.729
+margin_top = -129.579
+margin_right = -256.729
+margin_bottom = -89.579
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HUD_Dash" type="TextureRect" parent="Player"]
-margin_left = -232.071
+margin_left = -256.729
 margin_top = -163.039
-margin_right = -192.071
+margin_right = -216.729
 margin_bottom = -123.039
 texture = ExtResource( 6 )
 __meta__ = {
