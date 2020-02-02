@@ -1,5 +1,6 @@
 extends Node
 
+var first_run := true
 var has_parts := false
 var jump_upgrade := false
 var dash_upgrade := false
@@ -19,3 +20,8 @@ func enable_double_jump() -> void:
 func enable_dash() -> void:
 	dash_upgrade = true
 	has_parts = false
+
+func start_game() -> void:
+	get_tree().change_scene("res://levels/LevelMain.tscn")
+	has_parts = false
+	first_run = false
