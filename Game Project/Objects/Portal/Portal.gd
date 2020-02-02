@@ -12,6 +12,6 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 		AutoRun.enable_dash()
 	
 	
-	#if AutoRun.enable_jump() and AutoRun.enable_double_jump() and AutoRun.enable_dash() and AutoRun.has_parts:
-	#	get_tree().change_scene("res://Scenes/Test_Scene.tscn")
+	if AutoRun.jump_upgrade and AutoRun.max_jump_count > 1 and AutoRun.dash_upgrade and AutoRun.has_parts:
+		get_tree().change_scene("res://Scenes/Test_Scene.tscn")
 	
