@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HUD_Dash.png-a13783f5eba1ac1dfa4659f38aeeda33.stex"
+path="res://.import/HUD_Dash.png-2c6cf1a71603455966597881be349ffd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/HUD_Dash.png"
-dest_files=[ "res://.import/HUD_Dash.png-a13783f5eba1ac1dfa4659f38aeeda33.stex" ]
+source_file="res://assets/Player/HUD_Dash.png"
+dest_files=[ "res://.import/HUD_Dash.png-2c6cf1a71603455966597881be349ffd.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Assets/Tilesets/AutotileRectangles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Portal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Backgrounds/BG mid.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Backgrounds/BG close.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Player/HUD_Parts.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Player/HUD_Jump.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Player/HUD_Dash.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Player/HUD_DoubleJump.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Player/HUD_Parts.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/HUD_Jump.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/HUD_DoubleJump.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/HUD_Dash.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Backgrounds/BG close.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Backgrounds/BG mid.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Portal.tscn" type="PackedScene" id=11]
 
 [node name="LevelMain" type="Node2D"]
 position = Vector2( 41.313, 8.98105 )
@@ -34,7 +34,7 @@ margin_left = 269.198
 margin_top = -163.039
 margin_right = 309.198
 margin_bottom = -123.039
-texture = ExtResource( 8 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,7 +44,7 @@ margin_left = -296.729
 margin_top = -163.039
 margin_right = -256.729
 margin_bottom = -123.039
-texture = ExtResource( 9 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,7 +54,7 @@ margin_left = -265.63
 margin_top = -163.039
 margin_right = -225.63
 margin_bottom = -123.039
-texture = ExtResource( 11 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,24 +64,24 @@ margin_left = -232.071
 margin_top = -163.039
 margin_right = -192.071
 margin_bottom = -123.039
-texture = ExtResource( 10 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JumpUpgrade" parent="." instance=ExtResource( 3 )]
+[node name="JumpUpgrade" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1521.24, 656.47 )
 scale = Vector2( 0.25, 0.25 )
 
-[node name="DoubleJumpUpgrade" parent="." instance=ExtResource( 3 )]
+[node name="DoubleJumpUpgrade" parent="." instance=ExtResource( 7 )]
 position = Vector2( 321.763, 67.4096 )
 scale = Vector2( 0.25, 0.25 )
 
-[node name="DashUpgrade" parent="." instance=ExtResource( 3 )]
+[node name="DashUpgrade" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1902.37, -767.326 )
 scale = Vector2( 0.25, 0.25 )
 
-[node name="Final_Parts" parent="." instance=ExtResource( 3 )]
+[node name="Final_Parts" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1678.71, 876.158 )
 scale = Vector2( 0.25, 0.25 )
 
@@ -90,19 +90,19 @@ margin_left = -85.0143
 margin_top = 9.30436
 margin_right = 158.986
 margin_bottom = 40.3044
-text = "Bring parts to portal to repair yourself.
-This unlocks double jumping"
+text = "Bring parts to the portal to repair it and yourself.
+(Unlocks double jump)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Instructions" type="Label" parent="."]
-margin_left = 1090.0
+margin_left = 1106.0
 margin_top = 526.0
-margin_right = 1335.0
+margin_right = 1318.0
 margin_bottom = 619.0
-text = "Bring back all 4  part boxed to the portal in order return home! 
-Each one will enable you to unlock an ability"
+text = "Bring four boxes of parts back to the portal in order return home! 
+Each time you repair it, you gain a new ability."
 align = 1
 valign = 1
 autowrap = true
@@ -115,7 +115,8 @@ margin_left = 1369.2
 margin_top = 680.182
 margin_right = 1675.2
 margin_bottom = 694.182
-text = "Return to Portal to unlock Jump (A on controller)"
+text = "Bring parts to the portal to repair it and yourself.
+(Unlocks Jump with A button)"
 align = 1
 valign = 1
 __meta__ = {
@@ -127,27 +128,29 @@ margin_left = 1589.39
 margin_top = -810.689
 margin_right = 1946.39
 margin_bottom = -796.689
-text = "Bring these parts back to unlock dashing (Right Bumber)"
+text = "Bring parts to the portal to repair it and yourself.
+(Unlocks Dash with right bumper)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LastParts" type="Label" parent="."]
-margin_left = 1735.57
-margin_top = 969.449
-margin_right = 2102.57
-margin_bottom = 983.449
-text = "Bring back to portal to finish the game, or keep exploring!"
+margin_left = 1736.0
+margin_top = 870.873
+margin_right = 1946.0
+margin_bottom = 905.873
+text = "Bring back to portal to go home, or keep exploring!"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG close" parent="." instance=ExtResource( 6 )]
+[node name="BG close" parent="." instance=ExtResource( 8 )]
 
-[node name="BG far" parent="." instance=ExtResource( 7 )]
+[node name="BG far" parent="." instance=ExtResource( 9 )]
 
-[node name="BG mid" parent="." instance=ExtResource( 5 )]
+[node name="BG mid" parent="." instance=ExtResource( 10 )]
 
-[node name="Portal" parent="." instance=ExtResource( 4 )]
+[node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1228.54, 648.812 )
 [connection signal="tree_entered" from="Portal" to="Portal" method="_on_Portal_tree_entered"]
