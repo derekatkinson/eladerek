@@ -18,6 +18,7 @@ export var MAX_JUMPS := 1
 var VELOCITY: = Vector2.ZERO
 
 var CURRENT_JUMP := 0
+var is_jumping = false
 
 func _physics_process(delta: float) -> void:
 	var direction: = get_direction()
@@ -62,9 +63,16 @@ func _physics_process(delta: float) -> void:
 	var anim_jump = "Jump_single"
 	var anim_fall = "Fall_DT"
 	
+	var anim_dash = "Dash"
+	
 	if AutoRun.jump_upgrade:
 		anim_idle = "Idle_DT-off"
 		anim_move = "Move_DT-off"
+		anim_fall = "Fall_DT"
+	elif AutoRun.dash_upgrade:
+		anim_idle = "Idle_RT-off"
+		anim_move = "Move_RT-off"
+		anim_fall = "Fall_RT"
 	
 	if VELOCITY.x == 0:
 		player_anim.play(anim_idle)
@@ -73,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	if VELOCITY.y > 0:
 		player_anim.play(anim_fall)
-	elif VELOCITY.y < 0 and !is_on_floor():
+	elif VELOCITY.y < 0:
 		player_anim.play(anim_jump)
 		
 	if VELOCITY.x > 0:
@@ -92,8 +100,10 @@ func player_jump():
 		CURRENT_JUMP = 0
 	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
 		CURRENT_JUMP += 1
+		is_jumping = true
 		return -1.0
 	else:
+		is_jumping = false
 		return 1.0
 
 	
