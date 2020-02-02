@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Tilesets/AutotileRectangles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Portal/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=7]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 13.771
+margin_top = 3.59244
+margin_right = 13.771
+margin_bottom = 3.59241
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -14,8 +22,10 @@ __meta__ = {
 [node name="background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 2.0
-margin_bottom = 5.0
+margin_left = -475.644
+margin_top = -281.677
+margin_right = 660.356
+margin_bottom = 558.323
 rect_scale = Vector2( 0.99762, 0.991295 )
 texture = ExtResource( 1 )
 expand = true
@@ -25,6 +35,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -87.0
@@ -56,18 +67,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -83.0
-margin_top = 183.933
-margin_right = 83.0
-margin_bottom = 197.933
-text = "Welcome To Our Game!"
+[node name="AutotileRectangles" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 458784, 0, 0, 458785, 0, 2, 524290, 0, 0, 524291, 0, 2, 524320, 0, 65536, 524321, 0, 65538, 589826, 0, 65536, 589827, 0, 65538, 589856, 0, 65536, 589857, 0, 65538, 655362, 0, 65536, 655363, 0, 65538, 655388, 3, 0, 655389, 4, 0, 655390, 0, 1, 655391, 0, 1, 655392, 0, 65537, 655393, 0, 65538, 720898, 0, 65536, 720899, 0, 65537, 720900, 0, 1, 720901, 0, 1, 720902, 0, 1, 720903, 0, 1, 720904, 0, 1, 720905, 0, 1, 720906, 0, 1, 720907, 0, 1, 720908, 0, 1, 720909, 0, 1, 720910, 0, 1, 720911, 0, 1, 720912, 0, 1, 720913, 0, 1, 720914, 0, 1, 720915, 0, 1, 720916, 0, 1, 720917, 0, 1, 720918, 0, 1, 720919, 0, 1, 720920, 0, 1, 720921, 0, 1, 720922, 0, 1, 720923, 0, 1, 720924, 0, 65537, 720925, 0, 65537, 720926, 0, 65537, 720927, 0, 65537, 720928, 0, 65537, 720929, 0, 65538, 786434, 0, 131072, 786435, 0, 131073, 786436, 0, 131073, 786437, 0, 131073, 786438, 0, 131073, 786439, 0, 65537, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65537, 786443, 0, 65537, 786444, 0, 65537, 786445, 0, 65537, 786446, 0, 65537, 786447, 0, 65537, 786448, 0, 65537, 786449, 0, 65537, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65537, 786454, 0, 65537, 786455, 0, 65537, 786456, 0, 65537, 786457, 0, 65537, 786458, 0, 65537, 786459, 0, 65537, 786460, 0, 65537, 786461, 0, 65537, 786462, 0, 65537, 786463, 0, 65537, 786464, 0, 65537, 786465, 0, 65538, 851975, 0, 131072, 851976, 0, 65537, 851977, 0, 65537, 851978, 0, 65537, 851979, 0, 65537, 851980, 0, 65537, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65537, 851992, 0, 65537, 851993, 0, 131073, 851994, 0, 131073, 851995, 0, 131073, 851996, 0, 131073, 851997, 0, 131073, 851998, 0, 131073, 851999, 0, 131073, 852000, 0, 131073, 852001, 0, 131074, 917512, 0, 131072, 917513, 0, 65537, 917514, 0, 65537, 917515, 0, 65537, 917516, 0, 65537, 917517, 0, 65537, 917518, 0, 65537, 917519, 0, 65537, 917520, 0, 65537, 917521, 0, 65537, 917522, 0, 65537, 917523, 0, 65537, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65537, 917528, 0, 131074, 983049, 0, 65536, 983050, 0, 65537, 983051, 0, 65537, 983052, 0, 65537, 983053, 0, 131073, 983054, 0, 131073, 983055, 0, 131073, 983056, 0, 131073, 983057, 0, 131073, 983058, 0, 65537, 983059, 0, 65537, 983060, 0, 65537, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 131074, 1048585, 0, 65536, 1048586, 0, 65537, 1048587, 0, 65537, 1048588, 0, 131074, 1048594, 0, 131072, 1048595, 0, 65537, 1048596, 0, 65537, 1048597, 0, 65537, 1048598, 0, 65538, 1114121, 0, 65536, 1114122, 0, 65537, 1114123, 0, 65538, 1114132, 0, 131072, 1114133, 0, 65537, 1114134, 0, 65538, 1179657, 0, 65536, 1179658, 0, 65537, 1179659, 0, 65538, 1179669, 0, 65536, 1179670, 0, 65538, 1245193, 0, 131072, 1245194, 0, 131073, 1245195, 0, 131074, 1245205, 0, 131072, 1245206, 0, 131074 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 528, 318 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 182.018, 334 )
+
+[node name="Parts" parent="." instance=ExtResource( 7 )]
+position = Vector2( 991.22, 300 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Instructions" type="Label" parent="."]
+margin_left = 527.734
+margin_top = 216.181
+margin_right = 693.734
+margin_bottom = 230.181
+text = "Use the left Stick to move"
 align = 1
-uppercase = true
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Mission" type="Label" parent="."]
+margin_left = 425.0
+margin_top = 251.172
+margin_right = 696.0
+margin_bottom = 265.172
+text = "Explore: Bring the spare parts to the portal"
+align = 1
+valign = 1
 [connection signal="button_up" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_button_up"]
 [connection signal="button_up" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_Exit_button_up"]
