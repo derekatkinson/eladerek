@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Upgrade.png-0cc9cafa656915d765e4fef438433ee3.stex"
+path="res://.import/portal_v2.png-39c13a954356ef3fed8393e559b866fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Upgrade/Upgrade.png"
-dest_files=[ "res://.import/Upgrade.png-0cc9cafa656915d765e4fef438433ee3.stex" ]
+source_file="res://assets/portal_v2.png"
+dest_files=[ "res://.import/portal_v2.png-39c13a954356ef3fed8393e559b866fb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
