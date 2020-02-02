@@ -31,28 +31,15 @@ func _physics_process(delta: float) -> void:
 	var anim_idle = "Idle"
 	var anim_move = "Move"
 	
-	var anim_jump = "Jump_single"
-	var anim_fall = "Fall_DT"
-	
-	if AutoRun.jump_upgrade:
-		anim_idle = "Idle_DT-off"
-		anim_move = "Move_DT-off"
-	
 	if VELOCITY.x == 0:
 		player_anim.play(anim_idle)
 	else:
 		player_anim.play(anim_move)
-	
-	if VELOCITY.y > 0:
-		player_anim.play(anim_fall)
-	elif VELOCITY.y < 0 and !is_on_floor():
-		player_anim.play(anim_jump)
-		
 	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)
 	elif VELOCITY.x < 0:
 		player_sprite.set_flip_h(true)
-
+	
 	
 func get_direction() -> Vector2:
 	return Vector2(
