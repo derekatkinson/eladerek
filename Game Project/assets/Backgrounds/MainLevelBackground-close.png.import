@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MainLevelBackground-close.png-7c047b9a96772eacb1fea566f3884d06.stex"
+path="res://.import/MainLevelBackground-close.png-e1ab780e844f9a9178a4a31367e9f54d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Backgrounds/MainLevelBackground-close.png"
-dest_files=[ "res://.import/MainLevelBackground-close.png-7c047b9a96772eacb1fea566f3884d06.stex" ]
+source_file="res://Assets/Backgrounds/MainLevelBackground-close.png"
+dest_files=[ "res://.import/MainLevelBackground-close.png-e1ab780e844f9a9178a4a31367e9f54d.stex" ]
 
 [params]
 

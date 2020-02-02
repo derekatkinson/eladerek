@@ -19,8 +19,9 @@ var VELOCITY: = Vector2.ZERO
 
 var CURRENT_JUMP := 0
 var is_jumping = false
+var is_dashing = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction: = get_direction()
 	VELOCITY = calculate_move_velocity(VELOCITY, direction, MAX_SPEED, MOVE_SPEED)
 	VELOCITY = move_and_slide(VELOCITY, Vector2(0, -1)) 
@@ -48,11 +49,6 @@ func _physics_process(delta: float) -> void:
 		UI_Dash.hide()
 	
 	
-	
-	if Input.is_action_just_pressed("ui_dash"):
-		if AutoRun.dash_upgrade:
-			dash()
-	
 	MAX_JUMPS = AutoRun.max_jump_count
 	
 	# Animation
@@ -69,25 +65,33 @@ func _physics_process(delta: float) -> void:
 		anim_idle = "Idle_DT-off"
 		anim_move = "Move_DT-off"
 		anim_fall = "Fall_DT"
-	elif AutoRun.dash_upgrade:
-		anim_idle = "Idle_RT-off"
-		anim_move = "Move_RT-off"
-		anim_fall = "Fall_RT"
+		if AutoRun.dash_upgrade:
+			anim_idle = "Idle_RT-off"
+			anim_move = "Move_RT-off"
+			anim_fall = "Fall_RT"
+			anim_jump = "Jump_RT"
 	
-	if VELOCITY.x == 0:
-		player_anim.play(anim_idle)
-	else:
-		player_anim.play(anim_move)
-	
-	if VELOCITY.y > 0:
-		player_anim.play(anim_fall)
-	elif VELOCITY.y < 0:
-		player_anim.play(anim_jump)
+	if !is_dashing:
+		if VELOCITY.x == 0:
+			player_anim.play(anim_idle)
+		else:
+			player_anim.play(anim_move)
 		
+		if VELOCITY.y > 0:
+			player_anim.play(anim_fall)
+		elif VELOCITY.y < 0:
+			player_anim.play(anim_jump)
+			
 	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)
 	elif VELOCITY.x < 0:
 		player_sprite.set_flip_h(true)
+
+	if Input.is_action_just_pressed("ui_dash") and AutoRun.dash_upgrade:
+		is_dashing = true
+		player_anim.play("Dash")
+		dash()
+	
 
 	
 func get_direction() -> Vector2:
@@ -128,6 +132,7 @@ func dash():
 
 func _on_Dash_Timer_timeout() -> void:
 	MAX_SPEED.x = 275
+	is_dashing = false
 
 
 func _on_Jump_Timer_timeout() -> void:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dash.png-cc6b009d0571a35fdab7f94a18516d3d.stex"
+path="res://.import/Dash.png-20b7a1e38aec7e2d6e1efd4eafb13606.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Upgrade/Dash.png"
-dest_files=[ "res://.import/Dash.png-cc6b009d0571a35fdab7f94a18516d3d.stex" ]
+source_file="res://Assets/Upgrade/Dash.png"
+dest_files=[ "res://.import/Dash.png-20b7a1e38aec7e2d6e1efd4eafb13606.stex" ]
 
 [params]
 
