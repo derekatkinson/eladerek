@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tilesets/AutotileRectangles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Portal/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Backgrounds/BG mid.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=9]
@@ -25,6 +25,9 @@ margin_bottom = 3.59241
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 171.525, 328.904 )
 
 [node name="background" type="TextureRect" parent="."]
 visible = false
@@ -124,9 +127,6 @@ texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Portal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 182.018, 334 )
 
 [node name="Parts" parent="." instance=ExtResource( 7 )]
 position = Vector2( 991.22, 300 )

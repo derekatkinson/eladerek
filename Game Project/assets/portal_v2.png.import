@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portal_v2.png-39c13a954356ef3fed8393e559b866fb.stex"
+path="res://.import/portal_v2.png-82ed9b2567d3abd1c4822a46072f2437.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portal_v2.png"
-dest_files=[ "res://.import/portal_v2.png-39c13a954356ef3fed8393e559b866fb.stex" ]
+source_file="res://Assets/portal_v2.png"
+dest_files=[ "res://.import/portal_v2.png-82ed9b2567d3abd1c4822a46072f2437.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TilesetPlatform.png-4130de465b469ebc288ec85e9ca8cf3f.stex"
+path="res://.import/TilesetPlatform.png-e01847d1a214e076dc90433ea1e90e88.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/TilesetPlatform.png"
-dest_files=[ "res://.import/TilesetPlatform.png-4130de465b469ebc288ec85e9ca8cf3f.stex" ]
+source_file="res://Assets/Tilesets/TilesetPlatform.png"
+dest_files=[ "res://.import/TilesetPlatform.png-e01847d1a214e076dc90433ea1e90e88.stex" ]
 
 [params]
 

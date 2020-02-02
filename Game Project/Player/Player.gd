@@ -122,3 +122,7 @@ func _on_Dash_Timer_timeout() -> void:
 
 func _on_Jump_Timer_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_Portal_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
