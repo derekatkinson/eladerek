@@ -4,6 +4,10 @@ onready var player_sprite = get_node("Sprite")
 onready var player_anim = get_node("AnimationPlayer")
 onready var dash_timer = get_node("Dash_Timer")
 onready var jump_timer = get_node("Jump_Timer")
+onready var UI_Parts = get_node("HUD_Parts")
+onready var UI_Jump = get_node("HUD_Jump")
+onready var UI_DJ = get_node("HUD_DoubleJump")
+onready var UI_Dash = get_node("HUD_Dash")
 
 export var MAX_SPEED: = Vector2(275, 500)
 export var MOVE_SPEED := Vector2(275, 500)
@@ -19,7 +23,31 @@ func _physics_process(delta: float) -> void:
 	var direction: = get_direction()
 	VELOCITY = calculate_move_velocity(VELOCITY, direction, MAX_SPEED, MOVE_SPEED)
 	VELOCITY = move_and_slide(VELOCITY, Vector2(0, -1)) 
-
+	
+	
+	### HUD Logic
+	if AutoRun.has_parts:
+		UI_Parts.show()
+	else:
+		UI_Parts.hide()
+	
+	if AutoRun.jump_upgrade:
+		UI_Jump.show()
+	else:
+		UI_Jump.hide()
+	
+	if AutoRun.max_jump_count >= 2:
+		UI_DJ.show()
+	else:
+		UI_DJ.hide()
+	
+	if AutoRun.dash_upgrade:
+		UI_Dash.show()
+	else:
+		UI_Dash.hide()
+	
+	
+	
 	if Input.is_action_just_pressed("ui_dash"):
 		if AutoRun.dash_upgrade:
 			dash()
@@ -76,6 +104,8 @@ func calculate_move_velocity(
 		speed: Vector2
 	 ) -> Vector2:
 	var new_velocity: = linear_velocity
+	if !is_on_floor():
+		new_velocity.x = linear_velocity.x / 2
 	new_velocity.x = max_speed.x * direction.x
 	new_velocity.y += GRAVITY * get_physics_process_delta_time()
 	if direction.y == -1.0:
