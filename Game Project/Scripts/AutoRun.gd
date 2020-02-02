@@ -3,9 +3,9 @@ extends Node
 var first_run := false
 var portal_broken := true
 var jump_upgrade := true
-var dash_upgrade := false
+var dash_upgrade := true
 var has_parts := false
-var max_jump_count := 1
+var max_jump_count := 2
 
 func get_parts() -> void:
 	has_parts = true

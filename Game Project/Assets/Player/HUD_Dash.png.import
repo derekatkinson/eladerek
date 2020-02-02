@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HUD_Dash.png-2c6cf1a71603455966597881be349ffd.stex"
+path="res://.import/HUD_Dash.png-a13783f5eba1ac1dfa4659f38aeeda33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/HUD_Dash.png"
-dest_files=[ "res://.import/HUD_Dash.png-2c6cf1a71603455966597881be349ffd.stex" ]
+source_file="res://Assets/Player/HUD_Dash.png"
+dest_files=[ "res://.import/HUD_Dash.png-a13783f5eba1ac1dfa4659f38aeeda33.stex" ]
 
 [params]
 
