@@ -7,9 +7,10 @@
 radius = 7.18167
 height = 15.6882
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Fall_DT"
 length = 0.9
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -23,8 +24,7 @@ tracks/0/keys = {
 "values": [ 38, 39, 40 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -74,8 +74,7 @@ tracks/0/keys = {
 "values": [ 31, 32, 33, 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Move"
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -91,8 +90,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Move_DT-off"
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -115,19 +113,19 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 41
-frame = 40
+frame = 38
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -0.265808, 0.930328 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall_DT = SubResource( 7 )
-anims/Idle = SubResource( 2 )
+anims/Fall_DT = SubResource( 2 )
+anims/Idle = SubResource( 3 )
 anims/Idle_DT-off = SubResource( 4 )
 anims/Jump_single = SubResource( 5 )
-anims/Move = SubResource( 3 )
-anims/Move_DT-off = SubResource( 6 )
+anims/Move = SubResource( 6 )
+anims/Move_DT-off = SubResource( 7 )
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.2

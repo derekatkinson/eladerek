@@ -1,7 +1,7 @@
 extends Node
 
 var first_run := false
-var has_parts := false
+var has_parts := true
 var jump_upgrade := true
 var dash_upgrade := true
 var max_jump_count := 2
