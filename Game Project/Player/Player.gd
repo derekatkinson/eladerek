@@ -57,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 	var anim_move = "Move"
 	
 	var anim_jump = "Jump_single"
-	var anim_fall = "Fall_DT"
+	var anim_fall = "Fall"
 	
 	var anim_dash = "Dash"
 	
@@ -77,9 +77,9 @@ func _physics_process(_delta: float) -> void:
 		else:
 			player_anim.play(anim_move)
 		
-		if VELOCITY.y > 0:
+		if VELOCITY.y > 0 and is_on_floor() == false:
 			player_anim.play(anim_fall)
-		elif VELOCITY.y < 0:
+		elif VELOCITY.y < 0 and is_on_floor() == false and CURRENT_JUMP != 0:
 			player_anim.play(anim_jump)
 			
 	if VELOCITY.x > 0:
