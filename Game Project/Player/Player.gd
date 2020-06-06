@@ -71,16 +71,15 @@ func _physics_process(_delta: float) -> void:
 			anim_fall = "Fall_RT"
 			anim_jump = "Jump_RT"
 	
-	if !is_dashing:
-		if VELOCITY.x == 0:
-			player_anim.play(anim_idle)
-		else:
-			player_anim.play(anim_move)
-		
+	if !is_dashing:	
 		if VELOCITY.y > 0 and is_on_floor() == false:
 			player_anim.play(anim_fall)
 		elif VELOCITY.y < 0 and is_on_floor() == false and CURRENT_JUMP != 0:
 			player_anim.play(anim_jump)
+		elif VELOCITY.x != 0:
+			player_anim.play(anim_move)
+		else:
+			player_anim.play(anim_idle)	
 			
 	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)
