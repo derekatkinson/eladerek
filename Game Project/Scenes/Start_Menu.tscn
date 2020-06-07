@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Tilesets/AutotileRectangles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Player/HUD_Parts.png" type="Texture" id=7]
-[ext_resource path="res://assets/Player/HUD_Jump.png" type="Texture" id=8]
-[ext_resource path="res://assets/Player/HUD_DoubleJump.png" type="Texture" id=9]
-[ext_resource path="res://assets/Player/HUD_Dash.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Backgrounds/BG close.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=13]
@@ -89,46 +86,7 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-
-[node name="HUD_Parts" type="TextureRect" parent="Player"]
-margin_left = 269.198
-margin_top = -163.039
-margin_right = 309.198
-margin_bottom = -123.039
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_Jump" type="TextureRect" parent="Player"]
-margin_left = -297.0
-margin_top = -163.0
-margin_right = -257.0
-margin_bottom = -123.0
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_DoubleJump" type="TextureRect" parent="Player"]
-margin_left = -296.729
-margin_top = -129.579
-margin_right = -256.729
-margin_bottom = -89.5793
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_Dash" type="TextureRect" parent="Player"]
-margin_left = -256.729
-margin_top = -163.039
-margin_right = -216.729
-margin_bottom = -123.039
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+editor_draw_drag_margin = true
 
 [node name="Parts" parent="." instance=ExtResource( 11 )]
 position = Vector2( 991.22, 300 )
@@ -160,5 +118,7 @@ valign = 1
 [node name="BG far" parent="." instance=ExtResource( 13 )]
 
 [node name="BG mid" parent="." instance=ExtResource( 14 )]
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
 [connection signal="button_up" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_button_up"]
 [connection signal="button_up" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_Exit_button_up"]

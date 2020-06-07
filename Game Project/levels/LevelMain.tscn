@@ -1,11 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tilesets/AutotileRectangles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Player/HUD_Parts.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Player/HUD_Jump.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/HUD_DoubleJump.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/HUD_Dash.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Upgrade/Upgrade.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Backgrounds/BG close.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Backgrounds/BG far.tscn" type="PackedScene" id=9]
@@ -13,7 +10,6 @@
 [ext_resource path="res://Assets/Portal.tscn" type="PackedScene" id=11]
 
 [node name="LevelMain" type="Node2D"]
-position = Vector2( 41.313, 8.98105 )
 
 [node name="CaveBackground" parent="." instance=ExtResource( 1 )]
 z_index = -1
@@ -30,46 +26,6 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-
-[node name="HUD_Parts" type="TextureRect" parent="Player"]
-margin_left = 269.198
-margin_top = -163.039
-margin_right = 309.198
-margin_bottom = -123.039
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_Jump" type="TextureRect" parent="Player"]
-margin_left = -296.729
-margin_top = -163.039
-margin_right = -256.729
-margin_bottom = -123.039
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_DoubleJump" type="TextureRect" parent="Player"]
-margin_left = -296.729
-margin_top = -129.579
-margin_right = -256.729
-margin_bottom = -89.579
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HUD_Dash" type="TextureRect" parent="Player"]
-margin_left = -256.729
-margin_top = -163.039
-margin_right = -216.729
-margin_bottom = -123.039
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="JumpUpgrade" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1521.24, 656.47 )
@@ -155,4 +111,6 @@ __meta__ = {
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1228.54, 648.812 )
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 [connection signal="tree_entered" from="Portal" to="Portal" method="_on_Portal_tree_entered"]

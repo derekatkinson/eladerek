@@ -25,9 +25,11 @@ AutoRun="*res://Scripts/AutoRun.gd"
 
 [display]
 
-window/size/width=1536
-window/size/height=864
+window/size/width=1920
+window/size/height=1080
 window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
