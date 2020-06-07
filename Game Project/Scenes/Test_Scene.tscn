@@ -33,9 +33,9 @@ margin_left = -133.5
 margin_top = 248.0
 margin_right = 133.5
 margin_bottom = 296.0
-text = "Congradulations!!!
+text = "Congratulations!
 
-You have repaird paird your portal!"
+You have repaired your portal!"
 align = 1
 uppercase = true
 __meta__ = {
@@ -49,6 +49,9 @@ margin_left = -64.5
 margin_top = 440.0
 margin_right = 64.5
 margin_bottom = 454.0
-text = "Press A to Play"
+text = "Press A button or space bar to play again"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
