@@ -51,25 +51,40 @@ func _physics_process(_delta: float) -> void:
 	
 	MAX_JUMPS = AutoRun.max_jump_count
 	
-	# Animation
+	# Player Animation
 	
 	var anim_idle = "Idle"
 	var anim_move = "Move"
 	
-	var anim_jump = "Jump_single"
+	var anim_jump = "Jump_DT"
 	var anim_fall = "Fall"
 	
 	var anim_dash = "Dash"
 	
+	if AutoRun.has_parts:
+		anim_idle = "Idle_hasParts"
+		anim_move = "Move_hasParts"
+		anim_fall = "Fall_hasParts"
+		
 	if AutoRun.jump_upgrade:
-		anim_idle = "Idle_DT-off"
-		anim_move = "Move_DT-off"
+		anim_idle = "Idle_DT"
+		anim_move = "Move_DT"
 		anim_fall = "Fall_DT"
+		if AutoRun.has_parts:
+			anim_idle = "Idle_DT_hasParts"
+			anim_move = "Move_DT_hasParts"
+			anim_fall = "Fall_DT_hasParts"
+			anim_jump = "Jump_DT_hasParts"
 		if AutoRun.dash_upgrade:
-			anim_idle = "Idle_RT-off"
-			anim_move = "Move_RT-off"
+			anim_idle = "Idle_RT"
+			anim_move = "Move_RT"
 			anim_fall = "Fall_RT"
 			anim_jump = "Jump_RT"
+			if AutoRun.has_parts:
+				anim_idle = "Idle_RT_hasParts"
+				anim_move = "Move_RT_hasParts"
+				anim_fall = "Fall_RT_hasParts"
+				anim_jump = "Jump_RT_hasParts"
 	
 	if !is_dashing:	
 		if VELOCITY.y > 0 and is_on_floor() == false:
@@ -88,7 +103,10 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_dash") and AutoRun.dash_upgrade:
 		is_dashing = true
-		player_anim.play("Dash")
+		if AutoRun.has_parts:
+			player_anim.play("Dash_hasParts")
+		else:
+			player_anim.play("Dash")
 		dash()
 	
 
