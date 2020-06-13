@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Whoosh,Sound Design,Blast,Watery,Crash.wav-76fd7b1063a4aea2eda9d12f1037625e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Eclectic Whooshes/Whoosh,Sound Design,Blast,Watery,Crash.wav"
+dest_files=[ "res://.import/Whoosh,Sound Design,Blast,Watery,Crash.wav-76fd7b1063a4aea2eda9d12f1037625e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

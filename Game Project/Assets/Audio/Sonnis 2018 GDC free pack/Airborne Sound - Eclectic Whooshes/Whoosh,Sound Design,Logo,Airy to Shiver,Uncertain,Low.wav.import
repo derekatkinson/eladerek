@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Whoosh,Sound Design,Logo,Airy to Shiver,Uncertain,Low.wav-5e6ab7f580a977f77d613de0b6dcf8bb.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Eclectic Whooshes/Whoosh,Sound Design,Logo,Airy to Shiver,Uncertain,Low.wav"
+dest_files=[ "res://.import/Whoosh,Sound Design,Logo,Airy to Shiver,Uncertain,Low.wav-5e6ab7f580a977f77d613de0b6dcf8bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

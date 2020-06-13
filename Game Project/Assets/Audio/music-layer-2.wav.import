@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/music-layer-2.wav-5072ce059ad0d598b74a489c9e6d7137.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/music-layer-2.wav"
+dest_files=[ "res://.import/music-layer-2.wav-5072ce059ad0d598b74a489c9e6d7137.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

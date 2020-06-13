@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Droid_Vocal_01.wav-f54f197a7cdd61e1c36c851da488a6ec.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Fox Audio Post-Production - Droid Vocal - Mini Library/Droid_Vocal_01.wav"
+dest_files=[ "res://.import/Droid_Vocal_01.wav-f54f197a7cdd61e1c36c851da488a6ec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

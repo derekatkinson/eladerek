@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Thruster.wav-ed4f5a3471ffc7f46330ba34c9177f40.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Thruster.wav"
+dest_files=[ "res://.import/Thruster.wav-ed4f5a3471ffc7f46330ba34c9177f40.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

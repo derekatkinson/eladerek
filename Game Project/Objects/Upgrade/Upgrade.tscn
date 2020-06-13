@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Upgrade/Upgrade.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Upgrade/parts.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Interface Accents/Accent,Interface,UI,Data,Chatter,Warble,Resonant,Clean,Pumping,Medium Slow.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Interface Accents/Accent,Interface,UI,Alert,Resonant,Waver.wav" type="AudioStream" id=4]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -0.179192, -34.5879, 13.9728, -31.4813, 26.0539, -22.1617, 32, -11.8665, 34.5106, 1.13745, 30.3685, 15.8073, 20.1859, 27.1979, 11.9018, 32.0304, 0.511131, 34.6192, -10.8796, 32.8933, -23.4783, 26.5076, -32.4528, 14.5992, -34.2071, 0.156757, -33.1432, -11.6339, -27.2752, -22.1617, -13.9861, -31.4813 )
@@ -78,7 +80,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Coin" type="Area2D"]
+[node name="CircuitBoard" type="Area2D"]
 monitorable = false
 collision_layer = 8
 script = ExtResource( 1 )
@@ -98,4 +100,13 @@ shape = SubResource( 2 )
 autoplay = "bouncing"
 anims/bouncing = SubResource( 3 )
 anims/picked = SubResource( 4 )
+
+[node name="Sound_Signal" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 6.74796 )
+stream = ExtResource( 3 )
+autoplay = true
+max_distance = 250.0
+
+[node name="Sound_Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Drone,Cyber,Deep,Pulse,Disturbing,Invasive,Loop.wav-d423c460a7680096604019e401f19d54.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound – Light and Dark Drones/Drone,Cyber,Deep,Pulse,Disturbing,Invasive,Loop.wav"
+dest_files=[ "res://.import/Drone,Cyber,Deep,Pulse,Disturbing,Invasive,Loop.wav-d423c460a7680096604019e401f19d54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

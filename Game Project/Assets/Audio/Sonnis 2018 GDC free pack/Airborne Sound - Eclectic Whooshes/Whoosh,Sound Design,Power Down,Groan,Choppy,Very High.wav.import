@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Whoosh,Sound Design,Power Down,Groan,Choppy,Very High.wav-ac93e3f7de6a5e52a7597e96b8dcbdd0.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Eclectic Whooshes/Whoosh,Sound Design,Power Down,Groan,Choppy,Very High.wav"
+dest_files=[ "res://.import/Whoosh,Sound Design,Power Down,Groan,Choppy,Very High.wav-ac93e3f7de6a5e52a7597e96b8dcbdd0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

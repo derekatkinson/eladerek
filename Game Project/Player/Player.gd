@@ -21,6 +21,22 @@ var CURRENT_JUMP := 0
 var is_jumping = false
 var is_dashing = false
 
+# Audio		
+func tween_audio_thruster(property, from, to, speed):
+	var tween = get_node("Sound_Player/Thruster/Tween")
+	tween.interpolate_property($Sound_Player/Thruster, property,
+			from, to, speed,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+
+func play_audio_thruster():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var sound_random_value = rng.randi_range(1, 5)
+	tween_audio_thruster("pitch_scale", 2, sound_random_value, .5)
+	$Sound_Player/Thruster.play()
+	
+# Movement
 func _physics_process(_delta: float) -> void:
 	var direction: = get_direction()
 	VELOCITY = calculate_move_velocity(VELOCITY, direction, MAX_SPEED, MOVE_SPEED)
@@ -88,7 +104,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if !is_dashing:	
 		if VELOCITY.y > 0 and is_on_floor() == false:
-			player_anim.play(anim_fall)
+			player_anim.play(anim_fall)	
 		elif VELOCITY.y < 0 and is_on_floor() == false and CURRENT_JUMP != 0:
 			player_anim.play(anim_jump)
 		elif VELOCITY.x != 0:
@@ -107,6 +123,8 @@ func _physics_process(_delta: float) -> void:
 			player_anim.play("Dash_hasParts")
 		else:
 			player_anim.play("Dash")
+		play_audio_thruster()
+		get_node("Sound_Player/VocalDash").play()
 		dash()
 	
 
@@ -122,6 +140,7 @@ func player_jump():
 	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
 		CURRENT_JUMP += 1
 		is_jumping = true
+		play_audio_thruster()
 		return -1.0
 	else:
 		is_jumping = false
@@ -150,7 +169,6 @@ func dash():
 func _on_Dash_Timer_timeout() -> void:
 	MAX_SPEED.x = 275
 	is_dashing = false
-
 
 func _on_Jump_Timer_timeout() -> void:
 	pass # Replace with function body.

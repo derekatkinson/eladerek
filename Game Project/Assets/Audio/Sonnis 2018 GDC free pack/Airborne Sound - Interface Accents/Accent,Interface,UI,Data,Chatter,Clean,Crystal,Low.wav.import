@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Accent,Interface,UI,Data,Chatter,Clean,Crystal,Low.wav-cd8255e4aab3129b622bf50c94682598.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Interface Accents/Accent,Interface,UI,Data,Chatter,Clean,Crystal,Low.wav"
+dest_files=[ "res://.import/Accent,Interface,UI,Data,Chatter,Clean,Crystal,Low.wav-cd8255e4aab3129b622bf50c94682598.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
