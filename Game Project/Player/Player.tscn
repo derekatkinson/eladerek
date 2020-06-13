@@ -1,10 +1,12 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ActorSprites/Robot_v2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound - Eclectic Whooshes/Whoosh,Sound Design,Blast,Watery,Crash.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Environment/fire.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Fox Audio Post-Production - Droid Vocal - Mini Library/Droid_Vocal_19.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Fox Audio Post-Production - Droid Vocal - Mini Library/Droid_Vocal_23.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Collide/bonk-3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Player/landing.wav" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.18167
@@ -451,7 +453,7 @@ wait_time = 0.9
 [node name="Thruster" type="AudioStreamPlayer" parent="Sound_Player"]
 stream = ExtResource( 3 )
 volume_db = -15.0
-pitch_scale = 2.0
+pitch_scale = 4.0
 
 [node name="Tween" type="Tween" parent="Sound_Player/Thruster"]
 
@@ -460,5 +462,11 @@ stream = ExtResource( 4 )
 
 [node name="VocalDash" type="AudioStreamPlayer" parent="Sound_Player"]
 stream = ExtResource( 5 )
+
+[node name="HitHead" type="AudioStreamPlayer" parent="Sound_Player"]
+stream = ExtResource( 6 )
+
+[node name="HitGround" type="AudioStreamPlayer" parent="Sound_Player"]
+stream = ExtResource( 7 )
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_Dash_Timer_timeout"]
 [connection signal="timeout" from="Jump_Timer" to="." method="_on_Jump_Timer_timeout"]

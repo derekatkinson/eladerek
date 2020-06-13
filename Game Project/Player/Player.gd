@@ -32,9 +32,9 @@ func tween_audio_thruster(property, from, to, speed):
 func play_audio_thruster():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var sound_random_value = rng.randi_range(1, 5)
-	tween_audio_thruster("pitch_scale", 2, sound_random_value, .5)
-	$Sound_Player/Thruster.play()
+	var sound_random_value = rng.randi_range(4, 10)
+	tween_audio_thruster("pitch_scale", 4, sound_random_value, .5)
+	$Sound_Player/Thruster.play()		
 	
 # Movement
 func _physics_process(_delta: float) -> void:
@@ -42,6 +42,9 @@ func _physics_process(_delta: float) -> void:
 	VELOCITY = calculate_move_velocity(VELOCITY, direction, MAX_SPEED, MOVE_SPEED)
 	VELOCITY = move_and_slide(VELOCITY, Vector2(0, -1)) 
 	
+	### Audio	
+	if is_on_ceiling():
+		$Sound_Player/HitHead.play()
 	
 	### HUD Logic
 	if AutoRun.has_parts:
@@ -103,10 +106,10 @@ func _physics_process(_delta: float) -> void:
 				anim_jump = "Jump_RT_hasParts"
 	
 	if !is_dashing:	
-		if VELOCITY.y > 0 and is_on_floor() == false:
-			player_anim.play(anim_fall)	
-		elif VELOCITY.y < 0 and is_on_floor() == false and CURRENT_JUMP != 0:
-			player_anim.play(anim_jump)
+		if VELOCITY.y > 0 and !is_on_floor():
+			player_anim.play(anim_fall)
+		elif VELOCITY.y < 0 and !is_on_floor() and CURRENT_JUMP != 0:
+			player_anim
 		elif VELOCITY.x != 0:
 			player_anim.play(anim_move)
 		else:
@@ -124,7 +127,7 @@ func _physics_process(_delta: float) -> void:
 		else:
 			player_anim.play("Dash")
 		play_audio_thruster()
-		get_node("Sound_Player/VocalDash").play()
+		$Sound_Player/VocalDash.play()
 		dash()
 	
 

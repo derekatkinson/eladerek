@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collect-5.wav-d94fa6e6d523157f288ca7cc234a328c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/8bit-SFX-Library/Collect/collect-5.wav"
+dest_files=[ "res://.import/collect-5.wav-d94fa6e6d523157f288ca7cc234a328c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/explode-7.wav-7b2b7cc0a324d0f809d7590a29851407.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/8bit-SFX-Library/Collide/explode-7.wav"
+dest_files=[ "res://.import/explode-7.wav-7b2b7cc0a324d0f809d7590a29851407.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

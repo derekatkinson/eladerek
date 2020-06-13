@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laser-1.wav-77ce40263bc261d9f78f8fec339bff06.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/8bit-SFX-Library/Shoot/laser-1.wav"
+dest_files=[ "res://.import/laser-1.wav-77ce40263bc261d9f78f8fec339bff06.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

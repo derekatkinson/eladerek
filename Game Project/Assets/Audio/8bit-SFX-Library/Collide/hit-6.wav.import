@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit-6.wav-a2ba5269548db4dee80b40466e2f940e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/8bit-SFX-Library/Collide/hit-6.wav"
+dest_files=[ "res://.import/hit-6.wav-a2ba5269548db4dee80b40466e2f940e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
