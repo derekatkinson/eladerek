@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/portal_v2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Portal.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/UI/ok-2.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound – Light and Dark Drones/Drone,Cyber,Deep,Pulse,Disturbing,Invasive,Loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/UI/cancel-1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Lose/lose-8.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "portal-0"
@@ -118,5 +121,18 @@ autoplay = true
 max_distance = 400.0
 
 [node name="Tween" type="Tween" parent="Sound_Portal"]
+
+[node name="Upgrade" type="AudioStreamPlayer2D" parent="Sound_Portal"]
+stream = ExtResource( 3 )
+max_distance = 400.0
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="Sound_Portal"]
+stream = ExtResource( 5 )
+max_distance = 400.0
+
+[node name="PowerDown" type="AudioStreamPlayer2D" parent="Sound_Portal"]
+position = Vector2( 1, 0 )
+stream = ExtResource( 6 )
+max_distance = 400.0
 [connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
 [connection signal="ready" from="." to="." method="_on_Portal_ready"]

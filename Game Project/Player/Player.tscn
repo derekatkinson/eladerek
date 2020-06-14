@@ -1,12 +1,13 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ActorSprites/Robot_v2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/8bit-SFX-Library/Environment/fire.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Fox Audio Post-Production - Droid Vocal - Mini Library/Droid_Vocal_19.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/Fall.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Fox Audio Post-Production - Droid Vocal - Mini Library/Droid_Vocal_23.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Collide/bonk-3.wav" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Player/landing.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/8bit-SFX-Library/Collide/bonk-4.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/HitGround.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/Rolling.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.18167
@@ -468,5 +469,9 @@ stream = ExtResource( 6 )
 
 [node name="HitGround" type="AudioStreamPlayer" parent="Sound_Player"]
 stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="Rolling" type="AudioStreamPlayer" parent="Sound_Player"]
+stream = ExtResource( 8 )
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_Dash_Timer_timeout"]
 [connection signal="timeout" from="Jump_Timer" to="." method="_on_Jump_Timer_timeout"]

@@ -21,10 +21,10 @@ var CURRENT_JUMP := 0
 var is_jumping = false
 var is_dashing = false
 
-# Audio		
-func tween_audio_thruster(property, from, to, speed):
+# Audio functions	
+func tween_audio(sound_node, property, from, to, speed):
 	var tween = get_node("Sound_Player/Thruster/Tween")
-	tween.interpolate_property($Sound_Player/Thruster, property,
+	tween.interpolate_property(sound_node, property,
 			from, to, speed,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
@@ -33,7 +33,7 @@ func play_audio_thruster():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var sound_random_value = rng.randi_range(4, 10)
-	tween_audio_thruster("pitch_scale", 4, sound_random_value, .5)
+	tween_audio($Sound_Player/Thruster, "pitch_scale", 4, sound_random_value, .5)
 	$Sound_Player/Thruster.play()		
 	
 # Movement
@@ -45,6 +45,15 @@ func _physics_process(_delta: float) -> void:
 	### Audio	
 	if is_on_ceiling():
 		$Sound_Player/HitHead.play()
+		
+	if VELOCITY.y > 0 and !is_on_floor() and not $Sound_Player/Fall.is_playing():
+		tween_audio($Sound_Player/Fall, "volume_db", -50, 0, .5)
+		$Sound_Player/Fall.play()	
+	if is_on_floor() or is_jumping:
+		tween_audio($Sound_Player/Fall, "volume_db", 0, -50, .25)
+		if $Sound_Player/Fall.is_playing():
+			$Sound_Player/HitGround.play()
+		$Sound_Player/Fall.stop()
 	
 	### HUD Logic
 	if AutoRun.has_parts:
@@ -66,7 +75,6 @@ func _physics_process(_delta: float) -> void:
 		UI_Dash.show()
 	else:
 		UI_Dash.hide()
-	
 	
 	MAX_JUMPS = AutoRun.max_jump_count
 	
@@ -109,11 +117,14 @@ func _physics_process(_delta: float) -> void:
 		if VELOCITY.y > 0 and !is_on_floor():
 			player_anim.play(anim_fall)
 		elif VELOCITY.y < 0 and !is_on_floor() and CURRENT_JUMP != 0:
-			player_anim
+			player_anim.play(anim_jump)
 		elif VELOCITY.x != 0:
 			player_anim.play(anim_move)
+			if not $Sound_Player/Rolling.is_playing():
+				$Sound_Player/Rolling.play()
 		else:
 			player_anim.play(anim_idle)	
+			$Sound_Player/Rolling.stop()
 			
 	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)

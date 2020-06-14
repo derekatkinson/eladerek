@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rolling.wav-4336867a28b6e5061ccccb6eba74b352.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Rolling.wav"
+dest_files=[ "res://.import/Rolling.wav-4336867a28b6e5061ccccb6eba74b352.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
