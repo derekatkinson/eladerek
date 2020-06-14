@@ -49,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 	if VELOCITY.y > 0 and !is_on_floor() and not $Sound_Player/Fall.is_playing():
 		tween_audio($Sound_Player/Fall, "volume_db", -50, 0, .5)
 		$Sound_Player/Fall.play()	
+		$Sound_Player/Rolling.stop()
 	if is_on_floor() or is_jumping:
 		tween_audio($Sound_Player/Fall, "volume_db", 0, -50, .25)
 		if $Sound_Player/Fall.is_playing():
@@ -118,13 +119,14 @@ func _physics_process(_delta: float) -> void:
 			player_anim.play(anim_fall)
 		elif VELOCITY.y < 0 and !is_on_floor() and CURRENT_JUMP != 0:
 			player_anim.play(anim_jump)
-		elif VELOCITY.x != 0:
+		elif VELOCITY.x != 0 and is_on_floor():
 			player_anim.play(anim_move)
-			if not $Sound_Player/Rolling.is_playing():
+			if !$Sound_Player/Rolling.is_playing():
 				$Sound_Player/Rolling.play()
 		else:
 			player_anim.play(anim_idle)	
 			$Sound_Player/Rolling.stop()
+			
 			
 	if VELOCITY.x > 0:
 		player_sprite.set_flip_h(false)
