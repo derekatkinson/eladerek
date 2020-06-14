@@ -9,7 +9,6 @@ onready var UI_Jump = get_node("../HUD/HUD_Jump")
 onready var UI_DJ = get_node("../HUD/HUD_DoubleJump")
 onready var UI_Dash = get_node("../HUD/HUD_Dash")
 
-#var DASH = player_velocity.x * 1.1
 export var MAX_JUMPS := 1
 const MAX_SPEED = Vector2(275, 500)
 var CURRENT_JUMP := 0
@@ -71,7 +70,6 @@ func _physics_process(delta):
 		player_velocity.x = max(player_velocity.x -ACCELERATION, -MAX_SPEED.x)   
 	else:  # If not holding the movement control…
 		friction = true
-
 	
 	# Jump
 	if is_on_floor():
@@ -166,20 +164,15 @@ func _physics_process(delta):
 			player_anim.play(anim_idle)	
 			$Sound_Player/Rolling.stop()
 	
-####
+# Dash
+func dash():
+	player_velocity.x *= 10
+	dash_timer.start()
 
+func _on_Dash_Timer_timeout() -> void:
+	is_dashing = false
 
-
-#export var MAX_SPEED: = Vector2(275, 500)
-#export var MOVE_SPEED := Vector2(275, 500)
-
-#export var GRAVITY := 2000.0
-
-#
-#var VELOCITY: = Vector2.ZERO
-#
-
-
+	
 # Audio functions	
 func tween_audio(sound_node, property, from, to, speed):
 	var tween = get_node("Sound_Player/Thruster/Tween")
@@ -195,47 +188,10 @@ func play_audio_thruster():
 	tween_audio($Sound_Player/Thruster, "pitch_scale", 4, sound_random_value, .5)
 	$Sound_Player/Thruster.play()		
 	
-# Movement
-#func _physics_process(_delta: float) -> void:
-#	var direction: = get_direction()
-#	VELOCITY = calculate_move_velocity(VELOCITY, direction, MAX_SPEED, MOVE_SPEED)
-#	VELOCITY = move_and_slide(VELOCITY, Vector2(0, -1)) 
-#
-	
-	
 
-	
-#func get_direction() -> Vector2:
-#	return Vector2(
-#		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), player_jump()
-#	)
-#
 
-#
-#
-#func calculate_move_velocity(
-#		linear_velocity: Vector2,
-#		direction: Vector2,
-#		max_speed: Vector2,
-#		speed: Vector2
-#	 ) -> Vector2:
-#	var new_velocity: = linear_velocity
-#	if !is_on_floor():
-#		new_velocity.x = linear_velocity.x / 2
-#	new_velocity.x = max_speed.x * direction.x
-#	new_velocity.y += GRAVITY * get_physics_process_delta_time()
-#	if direction.y == -1.0:
-#		new_velocity.y = max_speed.y * direction.y
-#	return new_velocity
 
-func dash():
-	player_velocity.x = player_velocity.x * 8
-	dash_timer.start()
-
-func _on_Dash_Timer_timeout() -> void:
-#	MAX_SPEED.x = 275
-	is_dashing = false
-
+# Unused?
 func _on_Jump_Timer_timeout() -> void:
 	pass # Replace with function body.
 
