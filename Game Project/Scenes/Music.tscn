@@ -6,4 +6,3 @@
 stream = ExtResource( 1 )
 volume_db = -15.0
 pitch_scale = 0.5
-autoplay = true

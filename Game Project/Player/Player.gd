@@ -9,8 +9,9 @@ onready var UI_Jump = get_node("../HUD/HUD_Jump")
 onready var UI_DJ = get_node("../HUD/HUD_DoubleJump")
 onready var UI_Dash = get_node("../HUD/HUD_Dash")
 
-export var DASH := 1000
+#var DASH = player_velocity.x * 1.1
 export var MAX_JUMPS := 1
+const MAX_SPEED = Vector2(275, 500)
 var CURRENT_JUMP := 0
 var is_jumping = false
 var is_dashing = false
@@ -19,12 +20,12 @@ var is_dashing = false
 var player_velocity = Vector2()
 var on_ground = false
 const ACCELERATION = 15
-const MAX_SPEED = Vector2(275, 500)
 const GRAVITY = 15
 const FLOOR = Vector2(0,-1)
 const JUMP_HEIGHT = -400
 const MIN_JUMP_HEIGHT = -100
 func _physics_process(delta):
+	
 	# Player Animation
 
 	var anim_idle = "Idle"
@@ -64,32 +65,18 @@ func _physics_process(delta):
 	player_velocity.y += GRAVITY
 	var friction = false
 	# Walking Left, Right or Idle
-	if Input.is_action_pressed("ui_right"):
-		#$Sprite.flip_h = false     
+	if Input.is_action_pressed("ui_right"):  # If holding the right movement control…
 		player_velocity.x = min(player_velocity.x +ACCELERATION, MAX_SPEED.x)
-		$AnimationPlayer.play()
-	elif Input.is_action_pressed("ui_left"):
-		#$Sprite.flip_h = true
-		player_velocity.x = max(player_velocity.x -ACCELERATION, -MAX_SPEED.x)    
-		$AnimationPlayer.play(anim_move)    
-	else:
-		#player_velocity.x = 0
+	elif Input.is_action_pressed("ui_left"):  # If holding the left movement control…
+		player_velocity.x = max(player_velocity.x -ACCELERATION, -MAX_SPEED.x)   
+	else:  # If not holding the movement control…
 		friction = true
-		#if on_ground == true:
-		$AnimationPlayer.play(anim_idle)
+
+	
 	# Jump
 	if is_on_floor():
 		CURRENT_JUMP = 0
-		if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
-			player_velocity.y = JUMP_HEIGHT
-			CURRENT_JUMP += 1
-			is_jumping = true
-			play_audio_thruster()
-		else:
-			is_jumping = false
-		if friction == true:
-			player_velocity.x = lerp(player_velocity.x, 0, .2)
-	else:
+	if !is_on_floor() and !is_dashing:
 		if player_velocity.y < 0:
 			$AnimationPlayer.play(anim_jump)
 		else:
@@ -98,6 +85,29 @@ func _physics_process(delta):
 		# Variable Height Jump
 		if Input.is_action_just_released("ui_jump") && player_velocity.y < MIN_JUMP_HEIGHT:
 			player_velocity.y = MIN_JUMP_HEIGHT
+		
+	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
+		player_velocity.y = JUMP_HEIGHT
+		CURRENT_JUMP += 1
+		is_jumping = true
+		play_audio_thruster()
+	else:
+		is_jumping = false
+	
+	if friction == true:
+		player_velocity.x = lerp(player_velocity.x, 0, .2)
+		
+	# Dash
+	if Input.is_action_just_pressed("ui_dash") and AutoRun.dash_upgrade and !is_dashing:
+		is_dashing = true
+		if AutoRun.has_parts:
+			player_anim.play("Dash_hasParts")
+		else:
+			player_anim.play("Dash")
+		play_audio_thruster()
+		$Sound_Player/VocalDash.play()
+		dash()
+	
 	# Sprite Direction  
 	if player_velocity.x > 0:
 		$Sprite.flip_h = false
@@ -111,11 +121,11 @@ func _physics_process(delta):
 		$Sound_Player/HitHead.play()
 
 	if player_velocity.y > 0 and !is_on_floor() and not $Sound_Player/Fall.is_playing():
-		tween_audio($Sound_Player/Fall, "volume_db", -50, 0, .5)
+		tween_audio($Sound_Player/Fall, "volume_db", -80, 0, .5)
 		$Sound_Player/Fall.play()	
 		$Sound_Player/Rolling.stop()
 	if is_on_floor() or is_jumping:
-		tween_audio($Sound_Player/Fall, "volume_db", 0, -50, .25)
+		tween_audio($Sound_Player/Fall, "volume_db", 0, -80, .25)
 		if $Sound_Player/Fall.is_playing():
 			$Sound_Player/HitGround.play()
 		$Sound_Player/Fall.stop()
@@ -143,28 +153,18 @@ func _physics_process(delta):
 
 	MAX_JUMPS = AutoRun.max_jump_count
 
-	if !is_dashing:	
-		if player_velocity.y > 0 and !is_on_floor():
+	if !is_dashing:  # If not dashing…
+		if player_velocity.y > 0 and !is_on_floor():  # If going down and not on floor…
 			player_anim.play(anim_fall)
-		elif player_velocity.y < 0 and !is_on_floor() and CURRENT_JUMP != 0:
+		elif player_velocity.y < 0 and !is_on_floor() and CURRENT_JUMP != 0:  # If going up and not on floor and you have already jumped…
 			player_anim.play(anim_jump)
-		elif player_velocity.x != 0 and is_on_floor():
+		elif player_velocity.x != 0 and is_on_floor():  # If player is moving left or right and is on floor…
 			player_anim.play(anim_move)
 			if !$Sound_Player/Rolling.is_playing():
 				$Sound_Player/Rolling.play()
 		else:
 			player_anim.play(anim_idle)	
 			$Sound_Player/Rolling.stop()
-#
-	if Input.is_action_just_pressed("ui_dash") and AutoRun.dash_upgrade:
-		is_dashing = true
-		if AutoRun.has_parts:
-			player_anim.play("Dash_hasParts")
-		else:
-			player_anim.play("Dash")
-		play_audio_thruster()
-		$Sound_Player/VocalDash.play()
-		dash()
 	
 ####
 
@@ -210,17 +210,7 @@ func play_audio_thruster():
 #		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), player_jump()
 #	)
 #
-#func player_jump():
-#	if is_on_floor():
-#		CURRENT_JUMP = 0
-#	if Input.is_action_just_pressed("ui_jump") and MAX_JUMPS > CURRENT_JUMP and AutoRun.jump_upgrade:
-#		CURRENT_JUMP += 1
-#		is_jumping = true
-#		play_audio_thruster()
-#		return -1.0
-#	else:
-#		is_jumping = false
-#		return 1.0
+
 #
 #
 #func calculate_move_velocity(
@@ -239,11 +229,11 @@ func play_audio_thruster():
 #	return new_velocity
 
 func dash():
-	MAX_SPEED.x = DASH
+	player_velocity.x = player_velocity.x * 8
 	dash_timer.start()
 
 func _on_Dash_Timer_timeout() -> void:
-	MAX_SPEED.x = 275
+#	MAX_SPEED.x = 275
 	is_dashing = false
 
 func _on_Jump_Timer_timeout() -> void:
