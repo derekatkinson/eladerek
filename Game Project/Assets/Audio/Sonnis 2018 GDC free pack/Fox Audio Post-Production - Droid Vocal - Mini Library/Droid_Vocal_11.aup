@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Droid_Vocal_11_data" version="1.3.0" audacityversion="2.4.1" sel0="0.1510657596" sel1="0.6510649790" vpos="0" h="0.0000000000" zoom="1219.3450173699" rate="96000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Copyright" value="2017 Fox Audio Post-Production (Droid Vocal) "/>
+		<tag name="TRACKNUMBER" value="0"/>
+		<tag name="YEAR" value="2017"/>
+		<tag name="Software" value="Soundminer"/>
+		<tag name="GENRE" value="Droid"/>
+		<tag name="Band" value="Droid Vocal"/>
+		<tag name="Original release time" value="2017"/>
+		<tag name="COMMENTS" value="droid, vocal, expression, sound"/>
+		<tag name="ARTIST" value="Fox Audio Post-Production"/>
+		<tag name="Subtitle" value="All sound effects are copyrighted Fox Audio - All rights reserved C 2017"/>
+		<tag name="Original album" value="www.foxaudio.fr"/>
+		<tag name="File owner" value="Droid Vocal"/>
+	</tags>
+	<wavetrack name="Droid_Vocal_11" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.15106576" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="47997">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1ffc4.au" len="47997" min="-0.106994" max="0.101434" rms="0.018496"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Droid_Vocal_11" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="96000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.15106576" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="47997">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f5ea.au" len="47997" min="-0.106994" max="0.101434" rms="0.018496"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="bonk-4" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="6662">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f6ad.au" len="6662" min="-0.230103" max="0.237122" rms="0.069496"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
