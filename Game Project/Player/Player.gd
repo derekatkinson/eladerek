@@ -107,9 +107,13 @@ func _physics_process(delta):
 		dash()
 	
 	# Sprite Direction  
-	if player_velocity.x > 0:
+	if Input.is_action_pressed("ui_right"):
 		$Sprite.flip_h = false
-	elif player_velocity.x < 0:
+	elif Input.is_action_pressed("ui_left"):
+		$Sprite.flip_h = true
+	elif player_velocity.x > 0:
+		$Sprite.flip_h = false
+	else:
 		$Sprite.flip_h = true
 	# Add Movement from Vector2 
 	player_velocity = move_and_slide(player_velocity, FLOOR, 5, 4, PI/3)
