@@ -9,6 +9,9 @@ var max_jump_count := 1
 
 func get_parts() -> void:
 	has_parts = true
+	
+func fix_first_portal() -> void:
+	has_parts = false
 
 func enable_jump() -> void:
 	jump_upgrade = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/portal_v2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Portal.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Audio/Sonnis 2018 GDC free pack/Airborne Sound – Light and Dark Drones/Drone,Cyber,Deep,Pulse,Disturbing,Invasive,Loop.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Audio/8bit-SFX-Library/UI/cancel-1.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Audio/8bit-SFX-Library/Lose/lose-8.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/portal_control_panel.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 15.9732, 17.3496 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "portal-0"
@@ -92,15 +96,20 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17 ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15.9732, 17.3496 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8.88309, 10 )
 
 [node name="Portal" type="Area2D"]
 script = ExtResource( 2 )
 
+[node name="PortalCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6.47057 )
+shape = SubResource( 6 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 18
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/portal-0 = SubResource( 1 )
@@ -108,10 +117,6 @@ anims/portal-1 = SubResource( 2 )
 anims/portal-2 = SubResource( 3 )
 anims/portal-3 = SubResource( 4 )
 anims/portal-4 = SubResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 6.47057 )
-shape = SubResource( 6 )
 
 [node name="Sound_Portal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
@@ -134,5 +139,19 @@ max_distance = 400.0
 position = Vector2( 1, 0 )
 stream = ExtResource( 6 )
 max_distance = 400.0
+
+[node name="ControlPanel" type="Area2D" parent="."]
+
+[node name="ControlPanelCollision" type="CollisionShape2D" parent="ControlPanel"]
+position = Vector2( 46.2421, 13.8107 )
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="ControlPanel"]
+position = Vector2( 21.407, 13.9574 )
+z_index = -1
+texture = ExtResource( 7 )
+hframes = 5
 [connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
 [connection signal="ready" from="." to="." method="_on_Portal_ready"]
+[connection signal="body_entered" from="ControlPanel" to="." method="_on_ControlPanel_body_entered"]
+[connection signal="ready" from="ControlPanel" to="." method="_on_ControlPanel_ready"]

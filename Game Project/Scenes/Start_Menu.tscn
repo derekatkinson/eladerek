@@ -123,5 +123,6 @@ valign = 1
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="Music" parent="." instance=ExtResource( 8 )]
+autoplay = false
 [connection signal="button_up" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_button_up"]
 [connection signal="button_up" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_Exit_button_up"]
